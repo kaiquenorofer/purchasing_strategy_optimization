@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.ipynb_checkpoints/
+env/
+venv/
+.DS_Store
+
+# SQLite
+*.db
+*.sqlite3
+
+# Power BI
+*.pbix
+
+# Logs
+*.log
+
+# VS Code
+.vscode/
+.history/
+
+# OS files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
