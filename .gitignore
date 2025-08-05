@@ -5,6 +5,8 @@ __pycache__/
 env/
 venv/
 .DS_Store
+src/data_clean_master.py
+data/raw/Estatistica_de_Fat_Produtos.csv
 
 # SQLite
 *.db
