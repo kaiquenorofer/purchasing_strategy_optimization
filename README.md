@@ -1,8 +1,27 @@
-# 🧠 Purchase Strategy Optimization Using Python and Power BI
+# 🧠 ABC Curve Inventory Analysis & Purchase Strategy Optimization | Python + Power BI
 
 ## ⭐ Project Overview
 
-This project analyzes product demand and stock levels to optimize purchasing decisions using Python and Power BI. Designed to reduce stock breakage and high customer churn in a real company setting.
+This project analyzes product demand and stock levels to optimize purchasing decisions using Python and Power BI. Designed to reduce stock breakage, customer churn and increase revenue in a real company setting.
+
+## 📁 Project Structure
+
+ETL Pipeline - Purchase strategy/
+├── data/ # Raw and cleaned product/sales data
+│ ├── raw/
+│ └── cleaned/
+├── db/ # SQLite DB generated from cleaned data
+├── images/ # Dashboards, plots, and ABC curve visuals
+├── powerbi/ # Power BI reports (.pbix files)
+├── src/ # Source code for ETL, cleaning, analysis
+│ ├── data_ingestion/
+│ ├── data_cleaning/
+│ ├── analysis/
+│ └── db/
+├── .gitignore
+├── LICENSE
+├── README.md
+├── requirements.txt
 
 ---
 
@@ -12,18 +31,17 @@ This project analyzes product demand and stock levels to optimize purchasing dec
 Our company was facing frequent stock breakages and high churn rates, impacting revenue and customer satisfaction.
 
 ### ✅ Task
-Review and optimize the current purchasing strategy using real-time data and predictive analysis.
+Review and optimize the current purchasing strategy to reduce stock breakage.
 
 ### ✅ Action
-- Built a custom ETL pipeline in Python using `pandas`
-- Cleaned and normalized sales data (IQR for outliers, normalization for trends)
-- Developed forecast models using **EWMA**
+- Built a custom ETL pipeline in Python using pandas
+- Cleaned and normalized sales data using numpy (IQR for outliers, normalization for trends)
+- Developed forecast models using **Holt-Winters**
 - Managed structured data with **SQLite**
 - Created actionable dashboards with **Power BI**
 
 ### ✅ Result
-- Identified high-demand, low-stock items in real time
-- Adjusted procurement routes for efficiency
+- Improved purchasing strategy, focusing on high-demand items
 - Launched targeted promotions for low-demand, high-stock products
 
 ---
@@ -34,15 +52,10 @@ Review and optimize the current purchasing strategy using real-time data and pre
 - **SQLite** (local DB)
 - **pandas**, **numpy**
 - **Power BI** (visual dashboard)
-- Forecasting: EWMA, IQR outlier removal
+- **Forecasting**: EWMA, IQR outlier removal
 
 ---
 
 ## 📊 Dashboards & Insights
 
 ![Dashboard Preview](images/dashboard.png) <!-- Add actual screenshot here -->
-
----
-
-## 📁 Project Structure
-
