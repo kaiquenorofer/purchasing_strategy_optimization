@@ -14,6 +14,7 @@ ETL Pipeline - Purchase strategy/
 ├── db/ # SQLite DB generated from cleaned data
 ├── images/ # Dashboards, plots, and ABC curve visuals
 ├── powerbi/ # Power BI reports (.pbix files)
+├── sql/ # SQL files to conduct data transformation
 ├── src/ # Source code for ETL, cleaning, analysis
 │   ├── data_ingestion/
 │   ├── data_cleaning/
@@ -52,7 +53,7 @@ Review and optimize the current purchasing strategy to reduce stock breakage.
 - **SQLite** (local DB)
 - **pandas**, **numpy**
 - **Power BI** (visual dashboard)
-- **Forecasting**: EWMA, IQR outlier removal
+- **Forecasting**: Holt-Winters, IQR outlier removal
 
 ---
 
