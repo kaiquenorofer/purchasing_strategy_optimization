@@ -14,6 +14,7 @@ ETL Pipeline - Purchase strategy/
 ├── db/ # SQLite DB generated from cleaned data
 ├── images/ # Dashboards, plots, and ABC curve visuals
 ├── powerbi/ # Power BI reports (.pbix files)
+├── sql/ # SQL files to conduct data transformation
 ├── src/ # Source code for ETL, cleaning, analysis
 │   ├── data_ingestion/
 │   ├── data_cleaning/
