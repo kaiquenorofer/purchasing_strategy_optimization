@@ -6,25 +6,25 @@ This project analyzes product demand and stock levels to optimize purchasing dec
 
 ## 📁 Project Structure
 
+```text
 ETL Pipeline - Purchase strategy/
 ├── data/ # Raw and cleaned product/sales data
-│ ├── raw/
-│ └── cleaned/
+│   ├── raw/
+│   └── cleaned/
 ├── db/ # SQLite DB generated from cleaned data
 ├── images/ # Dashboards, plots, and ABC curve visuals
 ├── powerbi/ # Power BI reports (.pbix files)
 ├── src/ # Source code for ETL, cleaning, analysis
-│ ├── data_ingestion/
-│ ├── data_cleaning/
-│ ├── analysis/
-│ └── db/
+│   ├── data_ingestion/
+│   ├── data_cleaning/
+│   ├── analysis/
+│   └── db/
 ├── .gitignore
 ├── LICENSE
 ├── README.md
-├── requirements.txt
-
+└── requirements.txt
+```
 ---
-
 ## 🌟 STAR Method
 
 ### ✅ Situation
