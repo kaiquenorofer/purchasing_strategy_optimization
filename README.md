@@ -1,4 +1,4 @@
-# 🧠 ABC Curve Inventory Analysis & Purchase Strategy Optimization | Python + Power BI
+# 🧠 ABC Curve Inventory Analysis & Purchase Strategy Optimization | Python + Power BI [UNDER DEVELOPMENT]
 
 ## ⭐ Project Overview
 
