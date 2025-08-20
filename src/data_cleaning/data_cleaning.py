@@ -11,28 +11,27 @@ try:
     file_path = r'C:\Users\Usuario\Documents\Kaique\ETL Pipeline - Purchase strategy\data\cleaned\cleaned_sales_data.csv'
     df_temp = pd.read_csv(file_path, encoding='utf-8', header=None, skiprows=2, on_bad_lines='warn')
 except FileNotFoundError:
-    print(f"Arquivo não encontrado em '{file_path}'. Verifique o caminho e tente novamente.")
     exit()
 
 main_df = df_temp[[0, 1, 4, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 59]].copy()
 
-names_in_file_order = ['COD_PROD',      'DESC_PROD',    'GRUPO',
-                       'QTD_JAN_25',    'QTD_FEV_25',   'QTD_MAR_25', 
-                       'QTD_ABR_25',    'QTD_MAI_25',   'QTD_JUN_25', 
-                       'QTD_JUL_25',    'QTD_AGO_24',   'QTD_SET_24', 
-                       'QTD_OUT_24',    'QTD_NOV_24',   'QTD_DEZ_24',
-                       'ESTOQUE_ATUAL'
+names_in_file_order = ['PROD_CODE',      'PROD_DESC',    'FAMILY',
+                       'QTT_JAN_25',    'QTT_FEB_25',   'QTT_MAR_25', 
+                       'QTT_APR_25',    'QTT_MAY_25',   'QTT_JUN_25', 
+                       'QTT_JUL_25',    'QTT_AUG_24',   'QTT_SEP_24', 
+                       'QTT_OCT_24',    'QTT_NOV_24',   'QTT_DEC_24',
+                       'CURRENT_INVENTORY'
                        ]
 main_df.columns = names_in_file_order
 
-chronological_sales_cols = ['QTD_AGO_24', 'QTD_SET_24', 'QTD_OUT_24', 
-                            'QTD_NOV_24', 'QTD_DEZ_24', 'QTD_JAN_25',
-                            'QTD_FEV_25', 'QTD_MAR_25', 'QTD_ABR_25', 
-                            'QTD_MAI_25', 'QTD_JUN_25', 'QTD_JUL_25'
+chronological_sales_cols = ['QTT_AUG_24', 'QTT_SEP_24', 'QTT_OCT_24', 
+                            'QTT_NOV_24', 'QTT_DEC_24', 'QTT_JAN_25',
+                            'QTT_FEB_25', 'QTT_MAR_25', 'QTT_APR_25', 
+                            'QTT_MAY_25', 'QTT_JUN_25', 'QTT_JUL_25'
                             ]
 
-main_df = main_df[['COD_PROD', 'DESC_PROD', 'GRUPO'] + chronological_sales_cols + ['ESTOQUE_ATUAL']]
-main_df.dropna(subset=['GRUPO'], inplace=True)
+main_df = main_df[['PROD_CODE', 'PROD_DESC', 'FAMILY'] + chronological_sales_cols + ['CURRENT_INVENTORY']]
+main_df.dropna(subset=['FAMILY'], inplace=True)
 
 periods = {
     '12m': chronological_sales_cols,
@@ -41,25 +40,21 @@ periods = {
     '1m': chronological_sales_cols[-1:]
 }
 
-main_df['FREQUENCIA_12M'] = (main_df[periods['12m' ]] > 0).sum(axis=1)
-main_df['FREQUENCIA_6M' ] = (main_df[periods['6m'  ]] > 0).sum(axis=1)
-main_df['FREQUENCIA_3M' ] = (main_df[periods['3m'  ]] > 0).sum(axis=1)
-main_df['FREQUENCIA_1M' ] = (main_df[periods['1m'  ]] > 0).sum(axis=1)
+main_df['12M_FREQUENCY'] = (main_df[periods['12m' ]] > 0).sum(axis=1)
+main_df['6M_FREQUENCY' ] = (main_df[periods['6m'  ]] > 0).sum(axis=1)
+main_df['3M_FREQUENCY' ] = (main_df[periods['3m'  ]] > 0).sum(axis=1)
+main_df['1M_FREQUENCY' ] = (main_df[periods['1m'  ]] > 0).sum(axis=1)
 
 main_df.to_sql('raw_df_table', engine, if_exists='replace', index=False)
 
-# # --- 2. Setup para Análise ---
 all_dataframes = {}
-product_families = main_df['GRUPO'].unique()
+product_families = main_df['FAMILY'].unique()
 
-# --- 3. Loop Principal de Análise ---
 for family in product_families:
     all_dataframes[family] = {}
-    # Usa o main_df já com a coluna de frequência de 12M
-    df_family = main_df[main_df['GRUPO'] == family].copy()
+    df_family = main_df[main_df['FAMILY'] == family].copy()
 
     for period_name, period_cols in periods.items():
-        # --- ETAPA 1: CÁLCULO DE OUTLIERS (IQR) ---
         df_analysis = df_family.copy()
         
         if period_name != '1m':
@@ -71,19 +66,16 @@ for family in product_families:
         
         all_dataframes[family][period_name] = df_analysis
 
-        # --- ETAPA 2: TRATAMENTO (CAPPING) E CLASSIFICAÇÃO POR PERFORMANCE ---
         df_capped = df_analysis.copy()
         
         if period_name != '1m':
             df_capped[period_cols] = df_capped[period_cols].clip(df_capped[f'LOWER_BOUND'], df_capped[f'UPPER_BOUND'], axis=0)
             df_capped[period_cols] = df_capped[period_cols].round(0).astype('int64')
-        # --- LÓGICA DE CLASSIFICAÇÃO APLICADA NA TABELA CAPPED ---
         volume_total_periodo = df_capped[period_cols].sum(axis=1)
         
-        # NOVO: Adiciona a coluna de frequência específica do período
-        df_capped['FREQUENCIA_PERIODO'] = (df_capped[period_cols] > 0).sum(axis=1)
+        df_capped['PERIOD_FREQUENCY'] = (df_capped[period_cols] > 0).sum(axis=1)
         
-        df_capped['PERFORMANCE_METRIC'] = volume_total_periodo * (df_capped['FREQUENCIA_PERIODO'])
+        df_capped['PERFORMANCE_METRIC'] = volume_total_periodo * (df_capped['PERIOD_FREQUENCY'])
 
         df_capped = df_capped.sort_values(by='PERFORMANCE_METRIC', ascending=False)
         df_capped['RANKING_PERFORMANCE'] = np.arange(1, len(df_capped) + 1)
