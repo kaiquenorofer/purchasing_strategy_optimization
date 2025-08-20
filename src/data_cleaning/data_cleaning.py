@@ -93,8 +93,6 @@ for family in product_families:
         
         all_dataframes[family][f'{period_name}_capped'] = df_capped
 
-print(df_capped.head(10))
-
 for period_name in periods.keys():
     analysis_list_for_period = [all_dataframes[family][period_name] for family in product_families]
     df_final_analysis = pd.concat(analysis_list_for_period, ignore_index=True)

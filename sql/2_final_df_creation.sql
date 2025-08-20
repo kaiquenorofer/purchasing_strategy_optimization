@@ -1,0 +1,81 @@
+DROP TABLE IF EXISTS FACT_STRATEGIC_ANALYSIS;
+
+CREATE TABLE FACT_STRATEGIC_ANALYSIS AS
+
+WITH PRODUCTS_BASE AS (
+    SELECT
+        PROD_CODE,
+        PROD_DESC,
+        FAMILY,
+        CURRENT_INVENTORY,
+        "12M_FREQUENCY",
+        (QTT_AUG_24 + QTT_SEP_24 + QTT_OCT_24 + QTT_NOV_24 + QTT_DEC_24 + QTT_JAN_25 +
+         QTT_FEB_25 + QTT_MAR_25 + QTT_APR_25 + QTT_MAY_25 + QTT_JUN_25 + QTT_JUL_25) AS "12M_SALES"
+    FROM
+        raw_df_table
+),
+
+Analise_12M AS (
+    SELECT
+        PROD_CODE,
+        ABC_CLASS_PERFORMANCE AS ABC_12M,
+        INVENTORY_GOAL AS INVENTORY_GOAL_12M
+    FROM
+        df_12m_capped
+),
+
+Analise_6M AS (
+    SELECT
+        PROD_CODE,
+        ABC_CLASS_PERFORMANCE AS ABC_6M,
+        INVENTORY_GOAL AS INVENTORY_GOAL_6M
+    FROM
+        df_6m_capped
+),
+
+Analise_3M AS (
+    SELECT
+        PROD_CODE,
+        ABC_CLASS_PERFORMANCE AS ABC_3M,
+        INVENTORY_GOAL AS INVENTORY_GOAL_3M
+    FROM
+        df_3m_capped
+),
+
+Analise_1M AS (
+    SELECT
+        PROD_CODE,
+        ABC_CLASS_PERFORMANCE AS ABC_1M,
+        INVENTORY_GOAL AS INVENTORY_GOAL_1M
+    FROM
+        df_1m_capped
+)
+
+SELECT
+    bp.PROD_CODE,
+    bp.PROD_DESC,
+    bp.FAMILY,
+    bp."12M_SALES",
+    bp."12M_FREQUENCY",
+    a12.ABC_12M,
+    a6.ABC_6M,
+    a3.ABC_3M,
+    a1.ABC_1M,
+    bp.CURRENT_INVENTORY,
+
+    ROUND(
+        (
+            COALESCE(a12.INVENTORY_GOAL_12M, 0) +
+            COALESCE(a6.INVENTORY_GOAL_6M, 0) +
+            COALESCE(a3.INVENTORY_GOAL_3M, 0) +
+            COALESCE(a1.INVENTORY_GOAL_1M, 0)
+        ) / 4.0, 0
+    ) AS INVENTORY_GOAL_AVERAGE
+FROM
+    PRODUCTS_BASE bp
+LEFT JOIN Analise_12M a12 ON bp.PROD_CODE = a12.PROD_CODE
+LEFT JOIN Analise_6M  a6  ON bp.PROD_CODE = a6.PROD_CODE
+LEFT JOIN Analise_3M  a3  ON bp.PROD_CODE = a3.PROD_CODE
+LEFT JOIN Analise_1M  a1  ON bp.PROD_CODE = a1.PROD_CODE
+ORDER BY
+    bp."12M_SALES" DESC;
