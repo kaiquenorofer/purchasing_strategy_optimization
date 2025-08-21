@@ -1,70 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kaique Catarin - Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Analysis - Portfolio Project</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- ===== HERO / INTRO ===== -->
-  <header class="hero">
-    <div class="hero-content">
-      <img src="images/profile.jpg" alt="Kaique Catarin" class="profile-pic">
-      <h1>👋 Hi, I’m Kaique Catarin</h1>
-      <p class="subtitle">Analytics Engineer | Data Strategist | Retail Steel & Iron</p>
-      <div class="social-links">
-        <a href="https://github.com/kaiquenorofer" target="_blank">GitHub</a>
-        <a href="https://www.linkedin.com/in/YOUR-LINKEDIN" target="_blank">LinkedIn</a>
-        <a href="mailto:kaique@example.com">Email</a>
-      </div>
+    <div class="container">
+        <header>
+            <h1>🧠 ABC Curve Inventory Analysis & Purchase Strategy Optimization</h1>
+            <p class="subtitle">A Python and Power BI project for stock optimization.</p>
+        </header>
+
+        <section>
+            <h2>⭐ Project Overview</h2>
+            <p>
+                This project analyzes product demand and stock levels to optimize purchasing decisions using Python and Power BI. Designed to reduce stock breakage, customer churn and increase revenue in a real company setting.
+            </p>
+        </section>
+        
+        <section>
+            <h2>📁 Project Structure</h2>
+            <pre class="code-block"><code>ETL Pipeline - Purchase strategy/
+├── data/
+│   ├── raw/
+│   └── cleaned/
+├── db/
+├── images/
+├── powerbi/
+├── sql/
+├── src/
+│   ├── data_ingestion/
+│   ├── data_cleaning/
+│   ├── analysis/
+│   └── db/
+├── .gitignore
+├── LICENSE
+├── README.md
+└── requirements.txt</code></pre>
+        </section>
+
+        <section>
+            <h2>🌟 STAR Method</h2>
+            <h3>✅ Situation</h3>
+            <p>Our company was facing frequent stock breakages and high churn rates, impacting revenue and customer satisfaction.</p>
+            <h3>✅ Task</h3>
+            <p>Review and optimize the current purchasing strategy to reduce stock breakage.</p>
+            <h3>✅ Action</h3>
+            <ul>
+                <li>Built a custom ETL pipeline in Python using pandas.</li>
+                <li>Cleaned and normalized sales data using numpy (IQR for outliers, normalization for trends).</li>
+                <li>Developed forecast models using <strong>Holt-Winters</strong>.</li>
+                <li>Managed structured data with <strong>SQLite</strong>.</li>
+                <li>Created actionable dashboards with <strong>Power BI</strong>.</li>
+            </ul>
+            <h3>✅ Result</h3>
+            <ul>
+                <li>Improved purchasing strategy, focusing on high-demand items.</li>
+                <li>Launched targeted promotions for low-demand, high-stock products.</li>
+            </ul>
+        </section>
+        
+        <section class="tech-stack">
+            <h2>💻 Tech Stack</h2>
+            <ul>
+                <li><strong>Python</strong> (ETL, forecasting, cleaning)</li>
+                <li><strong>SQLite</strong> (local DB)</li>
+                <li><strong>pandas</strong> & <strong>numpy</strong></li>
+                <li><strong>Power BI</strong> (visual dashboard)</li>
+                <li><strong>Forecasting</strong>: Holt-Winters, IQR outlier removal</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>📊 Dashboards & Insights</h2>
+            <p>The dashboard below centralizes information, allowing for a quick analysis of products that need attention.</p>
+            <img src="images/powerbi.png" alt="Dashboard Preview in Power BI" class="dashboard-image">
+        </section>
+
+        <footer>
+            <p>Project developed by Kaique Catarin de Oliveira.</p>
+            <a href="https://github.com/kaiquenorofer/purchasing_strategy_optimization" target="_blank">View Code on GitHub</a>
+        </footer>
+
     </div>
-  </header>
-
-  <!-- ===== ABOUT ===== -->
-  <section class="about">
-    <h2>About Me</h2>
-    <p>
-      I’m a commercial intelligence analyst passionate about efficiency, innovation, 
-      and solving problems with data. Skilled in <strong>SQL, Python, Power BI</strong>, 
-      and <strong>Analytics Engineering</strong>.  
-      My mission is to turn raw data into scalable strategies that generate 
-      real business impact.
-    </p>
-  </section>
-
-  <!-- ===== PROJECTS ===== -->
-  <section class="projects">
-    <h2>Featured Projects</h2>
-    <div class="project-grid">
-      
-      <div class="project-card">
-        <h3>🧠 ABC Curve Inventory Analysis</h3>
-        <p>Python + Power BI project to optimize purchasing and prevent stock breakage.</p>
-        <a href="inventory.html">View Project</a>
-      </div>
-      
-      <div class="project-card">
-        <h3>📈 Sales Forecasting</h3>
-        <p>Predictive models (Holt-Winters, ARIMA) to optimize sales planning.</p>
-        <a href="#">View Project</a>
-      </div>
-      
-      <div class="project-card">
-        <h3>🚚 Logistics & Purchases Dashboard</h3>
-        <p>Integration of logistics and procurement data for real-time decision-making.</p>
-        <a href="#">View Project</a>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ===== FOOTER ===== -->
-  <footer>
-    <p>© 2025 Kaique Catarin. Built with ❤️ and deployed on GitHub Pages.</p>
-  </footer>
 
 </body>
 </html>
