@@ -44,31 +44,14 @@ forecast_results = []
 for index, row in df_processed.iterrows():
     product_data = row[chronological_sales_cols].values
     ts_data = pd.Series(product_data, index=time_index)
-    
-    # Try Holt-Winters with trend and seasonality
-    try:
-        fit_model = ExponentialSmoothing(
-            ts_data,
-            trend='add',
-            seasonal='mul',
-            seasonal_periods=12,
-            initialization_method="estimated"
-        ).fit()
-        forecast = fit_model.forecast(1)[0]
-    # Fallback: trend only
-    except:
-        try:
-            fit_model = ExponentialSmoothing(
-                ts_data,
-                trend='add',
-                seasonal=None,
-                initialization_method="estimated"
-            ).fit()
-            forecast = fit_model.forecast(1)[0]
-        # Last fallback: use last observed value
-        except:
-            forecast = ts_data.iloc[-1]
-
+    fit_model = ExponentialSmoothing(
+        ts_data,
+        trend='add',
+        seasonal='mul',
+        seasonal_periods=12,
+        initialization_method="estimated"
+    ).fit()
+    forecast = fit_model.forecast(1)[0]
     forecast_results.append(max(0, forecast))
 
 # ===============================
