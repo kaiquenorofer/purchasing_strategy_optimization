@@ -1,7 +1,17 @@
+-- =========================================================
+-- Step 1: Drop existing fact table
+-- =========================================================
 DROP TABLE IF EXISTS FACT_STRATEGIC_ANALYSIS;
 
+-- =========================================================
+-- Step 2: Create FACT_STRATEGIC_ANALYSIS table consolidating product and inventory data
+-- =========================================================
 CREATE TABLE FACT_STRATEGIC_ANALYSIS AS
 
+-- =========================================================
+-- Step 2a: Build PRODUCTS_BASE CTE
+-- =========================================================
+-- Aggregate product data and calculate 12-month sales
 WITH PRODUCTS_BASE AS (
     SELECT
         PROD_CODE,
@@ -15,6 +25,10 @@ WITH PRODUCTS_BASE AS (
         raw_df_table
 ),
 
+-- =========================================================
+-- Step 2b: Build Analise_12M CTE
+-- =========================================================
+-- Extract ABC classification and inventory goal for 12 months
 Analise_12M AS (
     SELECT
         PROD_CODE,
@@ -24,6 +38,10 @@ Analise_12M AS (
         df_12m_capped
 ),
 
+-- =========================================================
+-- Step 2c: Build Analise_6M CTE
+-- =========================================================
+-- Extract ABC classification and inventory goal for 6 months
 Analise_6M AS (
     SELECT
         PROD_CODE,
@@ -33,6 +51,10 @@ Analise_6M AS (
         df_6m_capped
 ),
 
+-- =========================================================
+-- Step 2d: Build Analise_3M CTE
+-- =========================================================
+-- Extract ABC classification and inventory goal for 3 months
 Analise_3M AS (
     SELECT
         PROD_CODE,
@@ -42,6 +64,10 @@ Analise_3M AS (
         df_3m_capped
 ),
 
+-- =========================================================
+-- Step 2e: Build Analise_1M CTE
+-- =========================================================
+-- Extract ABC classification and inventory goal for 1 month
 Analise_1M AS (
     SELECT
         PROD_CODE,
@@ -51,6 +77,9 @@ Analise_1M AS (
         df_1m_capped
 )
 
+-- =========================================================
+-- Step 3: Consolidate all CTEs into final fact table
+-- =========================================================
 SELECT
     bp.PROD_CODE,
     bp.PROD_DESC,
@@ -63,6 +92,9 @@ SELECT
     a1.ABC_1M,
     bp.CURRENT_INVENTORY,
 
+    -- =====================================================
+    -- Step 3a: Compute average inventory goal across all periods
+    -- =====================================================
     ROUND(
         (
             COALESCE(a12.INVENTORY_GOAL_12M, 0) +
@@ -77,5 +109,9 @@ LEFT JOIN Analise_12M a12 ON bp.PROD_CODE = a12.PROD_CODE
 LEFT JOIN Analise_6M  a6  ON bp.PROD_CODE = a6.PROD_CODE
 LEFT JOIN Analise_3M  a3  ON bp.PROD_CODE = a3.PROD_CODE
 LEFT JOIN Analise_1M  a1  ON bp.PROD_CODE = a1.PROD_CODE
+
+-- =========================================================
+-- Step 4: Order final table by descending 12-month sales
+-- =========================================================
 ORDER BY
     bp."12M_SALES" DESC;
