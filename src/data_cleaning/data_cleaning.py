@@ -1,6 +1,7 @@
 import pandas as pd
 from sqlalchemy import create_engine
 import numpy as np
+from statsmodels.tsa.holtwinters import ExponentialSmoothing
 
 pd.set_option('future.no_silent_downcasting', True)
 
@@ -44,8 +45,6 @@ main_df['12M_FREQUENCY'] = (main_df[periods['12m' ]] > 0).sum(axis=1)
 main_df['6M_FREQUENCY' ] = (main_df[periods['6m'  ]] > 0).sum(axis=1)
 main_df['3M_FREQUENCY' ] = (main_df[periods['3m'  ]] > 0).sum(axis=1)
 main_df['1M_FREQUENCY' ] = (main_df[periods['1m'  ]] > 0).sum(axis=1)
-
-main_df.to_sql('raw_df_table', engine, if_exists='replace', index=False)
 
 all_dataframes = {}
 product_families = main_df['FAMILY'].unique()
