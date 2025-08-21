@@ -1,11 +1,3 @@
-Olá\! Claro, posso ajudar com isso.
-
-Ao revisar o arquivo, notei que ele já está escrito em um inglês excelente e muito profissional\! A estrutura, a clareza e a gramática estão ótimas.
-
-De qualquer forma, aqui está o conteúdo do seu `README.md` em inglês, pronto para você copiar e colar no seu perfil.
-
------
-
 # 🧠 ABC Curve Inventory Analysis & Purchase Strategy Optimization | Python + Power BI [UNDER DEVELOPMENT]
 
 ## ⭐ Project Overview
