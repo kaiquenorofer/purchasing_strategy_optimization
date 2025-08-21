@@ -63,3 +63,4 @@ Review and optimize the current purchasing strategy to reduce stock breakage.
 
 ## 📊 Dashboards & Insights
 
+[Dashboard Preview](images/powerbi.png)
