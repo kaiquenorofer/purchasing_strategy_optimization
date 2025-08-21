@@ -1,8 +1,16 @@
+Olá\! Claro, posso ajudar com isso.
+
+Ao revisar o arquivo, notei que ele já está escrito em um inglês excelente e muito profissional\! A estrutura, a clareza e a gramática estão ótimas.
+
+De qualquer forma, aqui está o conteúdo do seu `README.md` em inglês, pronto para você copiar e colar no seu perfil.
+
+-----
+
 # 🧠 ABC Curve Inventory Analysis & Purchase Strategy Optimization | Python + Power BI [UNDER DEVELOPMENT]
 
 ## ⭐ Project Overview
 
-This project analyzes product demand and stock levels to optimize purchasing decisions using Python and Power BI. Designed to reduce stock breakage, customer churn and increase revenue in a real company setting.
+This project analyzes product demand and stock levels to optimize purchasing decisions using Python and Power BI. [cite\_start]Designed to reduce stock breakage, customer churn and increase revenue in a real company setting. [cite: 1]
 
 ## 📁 Project Structure
 
@@ -25,38 +33,44 @@ ETL Pipeline - Purchase strategy/
 ├── README.md
 └── requirements.txt
 ```
----
+
+## [cite\_start][cite: 1]
+
 ## 🌟 STAR Method
 
 ### ✅ Situation
-Our company was facing frequent stock breakages and high churn rates, impacting revenue and customer satisfaction.
+
+[cite\_start]Our company was facing frequent stock breakages and high churn rates, impacting revenue and customer satisfaction. [cite: 1]
 
 ### ✅ Task
-Review and optimize the current purchasing strategy to reduce stock breakage.
+
+[cite\_start]Review and optimize the current purchasing strategy to reduce stock breakage. [cite: 1]
 
 ### ✅ Action
-- Built a custom ETL pipeline in Python using pandas
-- Cleaned and normalized sales data using numpy (IQR for outliers, normalization for trends)
-- Developed forecast models using **Holt-Winters**
-- Managed structured data with **SQLite**
-- Created actionable dashboards with **Power BI**
+
+  - [cite\_start]Built a custom ETL pipeline in Python using pandas [cite: 1]
+  - [cite\_start]Cleaned and normalized sales data using numpy (IQR for outliers, normalization for trends) [cite: 1]
+  - [cite\_start]Developed forecast models using **Holt-Winters** [cite: 1]
+  - [cite\_start]Managed structured data with **SQLite** [cite: 1]
+  - [cite\_start]Created actionable dashboards with **Power BI** [cite: 1]
 
 ### ✅ Result
-- Improved purchasing strategy, focusing on high-demand items
-- Launched targeted promotions for low-demand, high-stock products
 
----
+  - [cite\_start]Improved purchasing strategy, focusing on high-demand items [cite: 1]
+  - [cite\_start]Launched targeted promotions for low-demand, high-stock products [cite: 1]
+
+-----
 
 ## 💻 Tech Stack
 
-- **Python** (ETL, forecasting, cleaning)
-- **SQLite** (local DB)
-- **pandas**, **numpy**
-- **Power BI** (visual dashboard)
-- **Forecasting**: Holt-Winters, IQR outlier removal
+  - [cite\_start]**Python** (ETL, forecasting, cleaning) [cite: 1]
+  - [cite\_start]**SQLite** (local DB) [cite: 1]
+  - [cite\_start]**pandas**, **numpy** [cite: 1]
+  - [cite\_start]**Power BI** (visual dashboard) [cite: 1]
+  - [cite\_start]**Forecasting**: Holt-Winters, IQR outlier removal [cite: 1]
 
----
+-----
 
 ## 📊 Dashboards & Insights
 
-![Dashboard Preview](images/powerbi.png)
+[cite\_start][cite: 1]
