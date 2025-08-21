@@ -25,41 +25,38 @@ ETL Pipeline - Purchase strategy/
 ├── README.md
 └── requirements.txt
 ```
-
+---
 ## 🌟 STAR Method
 
 ### ✅ Situation
-
 Our company was facing frequent stock breakages and high churn rates, impacting revenue and customer satisfaction.
 
 ### ✅ Task
-
 Review and optimize the current purchasing strategy to reduce stock breakage.
 
 ### ✅ Action
-
-  - Built a custom ETL pipeline in Python using pandas 
-  - Cleaned and normalized sales data using numpy (IQR for outliers, normalization for trends) 
-  - Developed forecast models using **Holt-Winters** 
-  - Managed structured data with **SQLite** 
-  - Created actionable dashboards with **Power BI** 
+- Built a custom ETL pipeline in Python using pandas
+- Cleaned and normalized sales data using numpy (IQR for outliers, normalization for trends)
+- Developed forecast models using **Holt-Winters**
+- Managed structured data with **SQLite**
+- Created actionable dashboards with **Power BI**
 
 ### ✅ Result
+- Improved purchasing strategy, focusing on high-demand items
+- Launched targeted promotions for low-demand, high-stock products
 
-  - Improved purchasing strategy, focusing on high-demand items 
-  - Launched targeted promotions for low-demand, high-stock products 
-
------
+---
 
 ## 💻 Tech Stack
 
-  - **Python** (ETL, forecasting, cleaning) 
-  - **SQLite** (local DB) 
-  - **pandas**, **numpy** 
-  - **Power BI** (visual dashboard) 
-  - **Forecasting**: Holt-Winters, IQR outlier removal 
+- **Python** (ETL, forecasting, cleaning)
+- **SQLite** (local DB)
+- **pandas**, **numpy**
+- **Power BI** (visual dashboard)
+- **Forecasting**: Holt-Winters, IQR outlier removal
 
------
+---
 
 ## 📊 Dashboards & Insights
 
+![Dashboard Preview](images/powerbi.png)

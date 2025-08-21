@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Análise de Inventário - Portfólio</title>
+    <title>Inventory Analysis - Portfolio Project</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
@@ -11,58 +11,79 @@
 
     <div class="container">
         <header>
-            <h1>🧠 Análise de Inventário com Curva ABC e Otimização de Compra</h1>
-            <p class="subtitle">Um projeto de Python e Power BI para otimização de estoque.</p>
+            <h1>🧠 ABC Curve Inventory Analysis & Purchase Strategy Optimization</h1>
+            <p class="subtitle">A Python and Power BI project for stock optimization.</p>
         </header>
 
         <section>
-            <h2>⭐ Visão Geral</h2>
+            <h2>⭐ Project Overview</h2>
             <p>
-                Este projeto analisa a demanda de produtos e os níveis de estoque para otimizar as decisões de compra usando Python e Power BI. O objetivo é reduzir a ruptura de estoque, diminuir a perda de clientes e aumentar a receita em um cenário de uma empresa real.
+                This project analyzes product demand and stock levels to optimize purchasing decisions using Python and Power BI. Designed to reduce stock breakage, customer churn and increase revenue in a real company setting.
             </p>
+        </section>
+        
+        <section>
+            <h2>📁 Project Structure</h2>
+            <pre class="code-block"><code>ETL Pipeline - Purchase strategy/
+├── data/
+│   ├── raw/
+│   └── cleaned/
+├── db/
+├── images/
+├── powerbi/
+├── sql/
+├── src/
+│   ├── data_ingestion/
+│   ├── data_cleaning/
+│   ├── analysis/
+│   └── db/
+├── .gitignore
+├── LICENSE
+├── README.md
+└── requirements.txt</code></pre>
         </section>
 
         <section>
-            <h2>🌟 Método STAR</h2>
-            <h3>✅ Situação</h3>
-            <p>A empresa enfrentava rupturas de estoque frequentes e altas taxas de perda de clientes, impactando a receita e a satisfação.</p>
-            <h3>✅ Tarefa</h3>
-            <p>Revisar e otimizar a estratégia de compra atual para reduzir a ruptura de estoque.</p>
-            <h3>✅ Ação</h3>
+            <h2>🌟 STAR Method</h2>
+            <h3>✅ Situation</h3>
+            <p>Our company was facing frequent stock breakages and high churn rates, impacting revenue and customer satisfaction.</p>
+            <h3>✅ Task</h3>
+            <p>Review and optimize the current purchasing strategy to reduce stock breakage.</p>
+            <h3>✅ Action</h3>
             <ul>
-                <li>Construção de um pipeline ETL customizado em Python usando pandas.</li>
-                <li>Limpeza e normalização de dados de vendas com numpy (IQR para outliers).</li>
-                <li>Desenvolvimento de modelos de previsão usando <strong>Holt-Winters</strong>.</li>
-                <li>Gerenciamento de dados estruturados com <strong>SQLite</strong>.</li>
-                <li>Criação de dashboards acionáveis com <strong>Power BI</strong>.</li>
+                <li>Built a custom ETL pipeline in Python using pandas.</li>
+                <li>Cleaned and normalized sales data using numpy (IQR for outliers, normalization for trends).</li>
+                <li>Developed forecast models using <strong>Holt-Winters</strong>.</li>
+                <li>Managed structured data with <strong>SQLite</strong>.</li>
+                <li>Created actionable dashboards with <strong>Power BI</strong>.</li>
             </ul>
-            <h3>✅ Resultado</h3>
+            <h3>✅ Result</h3>
             <ul>
-                <li>Estratégia de compra aprimorada, com foco em itens de alta demanda.</li>
-                <li>Lançamento de promoções direcionadas para produtos de baixa demanda e alto estoque.</li>
+                <li>Improved purchasing strategy, focusing on high-demand items.</li>
+                <li>Launched targeted promotions for low-demand, high-stock products.</li>
             </ul>
         </section>
         
         <section class="tech-stack">
-            <h2>💻 Tecnologias Utilizadas</h2>
+            <h2>💻 Tech Stack</h2>
             <ul>
-                <li><strong>Python</strong> (ETL, Previsão, Limpeza)</li>
-                <li><strong>SQLite</strong> (Banco de Dados Local)</li>
+                <li><strong>Python</strong> (ETL, forecasting, cleaning)</li>
+                <li><strong>SQLite</strong> (local DB)</li>
                 <li><strong>pandas</strong> & <strong>numpy</strong></li>
-                <li><strong>Power BI</strong> (Dashboard Visual)</li>
-                <li><strong>Previsão</strong>: Holt-Winters, Remoção de Outliers com IQR</li>
+                <li><strong>Power BI</strong> (visual dashboard)</li>
+                <li><strong>Forecasting</strong>: Holt-Winters, IQR outlier removal</li>
             </ul>
         </section>
 
         <section>
             <h2>📊 Dashboards & Insights</h2>
-            <p>O dashboard abaixo centraliza as informações, permitindo uma análise rápida dos produtos que precisam de atenção (em falta ou em excesso).</p>
-            <img src="images/powerbi.png" alt="Preview do Dashboard no Power BI" class="dashboard-image">
+            <p>The dashboard below centralizes information, allowing for a quick analysis of products that need attention.</p>
+            <img src="images/powerbi.png" alt="Dashboard Preview in Power BI" class="dashboard-image">
         </section>
 
         <footer>
-            <p>Projeto desenvolvido por Kaique Catarin de Oliveira.</p>
-            <a href="https://github.com/kaiquenorofer/purchasing_strategy_optimization" target="_blank">Ver o código no GitHub</a>
+            <p>Project developed by Kaique Catarin de Oliveira.</p>
+            <a href="https://github.com/kaiquenorofer/purchasing_strategy_optimization" target="_blank">View Code on GitHub</a>
         </footer>
 
     </div>
