@@ -1,0 +1,96 @@
+/* Configurações gerais do corpo da página */
+body {
+    font-family: 'Roboto', sans-serif; /* Fonte moderna e limpa */
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Cor de fundo cinza claro */
+    color: #333;
+}
+
+/* Container principal para centralizar o conteúdo */
+.container {
+    max-width: 960px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff; /* Fundo branco para o conteúdo */
+    box-shadow: 0 0 15px rgba(0,0,0,0.1); /* Sombra suave */
+    border-radius: 8px; /* Bordas arredondadas */
+}
+
+/* Estilo do Cabeçalho */
+header {
+    text-align: center;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    color: #0056b3; /* Azul escuro para o título principal */
+    font-size: 2.2em;
+    font-weight: 700;
+}
+
+header .subtitle {
+    font-size: 1.2em;
+    color: #666;
+    font-weight: 300;
+}
+
+/* Estilo das seções */
+section {
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: #0056b3;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    font-weight: 700;
+}
+
+h3 {
+    color: #333;
+    font-weight: 700;
+}
+
+/* Estilo para listas (usado em Ação, Resultado e Tecnologias) */
+ul {
+    padding-left: 20px;
+}
+
+ul li {
+    margin-bottom: 8px;
+}
+
+/* Estilo da imagem do dashboard */
+.dashboard-image {
+    max-width: 100%; /* Garante que a imagem seja responsiva */
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* Estilo do rodapé */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 2px solid #e0e0e0;
+    color: #777;
+}
+
+footer a {
+    color: #0056b3;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: #003d82; /* Cor mais escura ao passar o mouse */
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise de Inventário - Portfólio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>🧠 Análise de Inventário com Curva ABC e Otimização de Compra</h1>
+            <p class="subtitle">Um projeto de Python e Power BI para otimização de estoque.</p>
+        </header>
+
+        <section>
+            <h2>⭐ Visão Geral</h2>
+            <p>
+                Este projeto analisa a demanda de produtos e os níveis de estoque para otimizar as decisões de compra usando Python e Power BI. O objetivo é reduzir a ruptura de estoque, diminuir a perda de clientes e aumentar a receita em um cenário de uma empresa real.
+            </p>
+        </section>
+
+        <section>
+            <h2>🌟 Método STAR</h2>
+            <h3>✅ Situação</h3>
+            <p>A empresa enfrentava rupturas de estoque frequentes e altas taxas de perda de clientes, impactando a receita e a satisfação.</p>
+            <h3>✅ Tarefa</h3>
+            <p>Revisar e otimizar a estratégia de compra atual para reduzir a ruptura de estoque.</p>
+            <h3>✅ Ação</h3>
+            <ul>
+                <li>Construção de um pipeline ETL customizado em Python usando pandas.</li>
+                <li>Limpeza e normalização de dados de vendas com numpy (IQR para outliers).</li>
+                <li>Desenvolvimento de modelos de previsão usando <strong>Holt-Winters</strong>.</li>
+                <li>Gerenciamento de dados estruturados com <strong>SQLite</strong>.</li>
+                <li>Criação de dashboards acionáveis com <strong>Power BI</strong>.</li>
+            </ul>
+            <h3>✅ Resultado</h3>
+            <ul>
+                <li>Estratégia de compra aprimorada, com foco em itens de alta demanda.</li>
+                <li>Lançamento de promoções direcionadas para produtos de baixa demanda e alto estoque.</li>
+            </ul>
+        </section>
+        
+        <section class="tech-stack">
+            <h2>💻 Tecnologias Utilizadas</h2>
+            <ul>
+                <li><strong>Python</strong> (ETL, Previsão, Limpeza)</li>
+                <li><strong>SQLite</strong> (Banco de Dados Local)</li>
+                <li><strong>pandas</strong> & <strong>numpy</strong></li>
+                <li><strong>Power BI</strong> (Dashboard Visual)</li>
+                <li><strong>Previsão</strong>: Holt-Winters, Remoção de Outliers com IQR</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>📊 Dashboards & Insights</h2>
+            <p>O dashboard abaixo centraliza as informações, permitindo uma análise rápida dos produtos que precisam de atenção (em falta ou em excesso).</p>
+            <img src="images/powerbi.png" alt="Preview do Dashboard no Power BI" class="dashboard-image">
+        </section>
+
+        <footer>
+            <p>Projeto desenvolvido por Kaique Catarin de Oliveira.</p>
+            <a href="https://github.com/kaiquenorofer/purchasing_strategy_optimization" target="_blank">Ver o código no GitHub</a>
+        </footer>
+
+    </div>
+
+</body>
+</html>
